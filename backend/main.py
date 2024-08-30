@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 origins = [
     "http://localhost",
     "http://localhost:5900",
+    "http://localhost:3000",
 ]
 
 app = FastAPI()
@@ -32,6 +33,12 @@ def generate_password(
 
     if use_punctuation:
         characters += string.punctuation
+
+    if length > 32:
+        length = 32
+    
+    if length < 8:
+        length = 8
 
     password = ''.join(random.choice(characters) for _ in range(length))
 
