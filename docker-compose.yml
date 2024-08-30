@@ -6,6 +6,7 @@ networks:
 services:
   nginx: 
     image: nginx:stable-alpine
+    restart: always
     ports:
       - "1900:1900"
     volumes:
@@ -19,11 +20,13 @@ services:
   backend: 
     build:
       context: ./backend
+    restart: always
     networks:
       - dev
 
   frontend: 
     build:
       context: ./frontend
+    restart: always
     networks:
       - dev
