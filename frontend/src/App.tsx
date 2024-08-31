@@ -1,11 +1,10 @@
-"use client";
 import styles from "./page.module.css";
-import Copy from "@/svg/Copy";
-import Check from "@/svg/Check";
+import Copy from "./svg/Copy";
+import Check from "./svg/Check";
 import { useState } from "react";
 import axios from "axios";
 
-export default function Home() {
+export default function App() {
   const [passwordLength, setPassswordLength] = useState(8)
   const [useDigit, setUseDigit] = useState(true)
   const [usePunctuation, setUsePunctuation] = useState(true)
