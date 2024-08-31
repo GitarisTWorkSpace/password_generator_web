@@ -1,7 +1,7 @@
 version: "3.9"
 
 networks:
-  dev:
+  password:
 
 services:
   nginx: 
@@ -15,18 +15,18 @@ services:
       - backend
       - frontend
     networks:
-      - dev
+      - password
 
   backend: 
     build:
       context: ./backend
     restart: always
     networks:
-      - dev
+      - password
 
   frontend: 
     build:
       context: ./frontend
     restart: always
     networks:
-      - dev
+      - password
