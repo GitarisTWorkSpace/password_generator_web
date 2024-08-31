@@ -5,9 +5,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 origins = [
-    "http://localhost",
-    "http://localhost:5900",
-    "http://localhost:3000",
+    "http://localhost:1900",
+    "http://localhost:1900/api",
 ]
 
 app = FastAPI()
@@ -19,6 +18,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get('/')
+def hello_world():
+    return { "ping" : "pong" }
 
 @app.post('/generate')
 def generate_password(
@@ -45,4 +48,4 @@ def generate_password(
     return { 'password' : password }
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", port=8900, reload=True)
+    uvicorn.run("main:app", host='0.0.0.0', port=8900, reload=True)

@@ -28,7 +28,7 @@ export default function App() {
     if (Number.isNaN(passwordLength))
       setPassswordLength(8);
 
-    const response = await axios.post("http://127.0.0.1:8900/generate?use_digit=" + useDigit + "&use_punctuation=" + usePunctuation+ "&length=" + passwordLength)
+    const response = await axios.post("http://localhost:1900/api/generate?use_digit=" + useDigit + "&use_punctuation=" + usePunctuation+ "&length=" + passwordLength)
     const data = await response.data
 
     setPasssword(data.password)
